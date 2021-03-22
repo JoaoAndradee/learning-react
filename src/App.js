@@ -18,17 +18,18 @@ function App() {
   function handleSearchInput(novoTexto) {
     setSearchText(novoTexto);
   }
+
+  function addAction(newItem) {
+    let newList = [...list, {title: newItem, done: false} ];
+    setList(newList);
+  }
   
   return (
     <>
       <h1>Lista de tarefas</h1>
       <SearchBox
-       frasePadrao="Faça uma busca..."
-       onChangeText={handleSearchInput}
-      />
-
-      <SearchBox
-       frasePadrao= {searchText}
+       frasePadrao="Adicione uma tarefa"
+       onEnter={addAction}
       />
 
     <hr/>
