@@ -23,6 +23,12 @@ function App() {
     let newList = [...list, {title: newItem, done: false} ];
     setList(newList);
   }
+
+ function handleToggleDone(index) {
+   let newList = [...list]
+   newList[index].done = !newList[index].done;
+   setList(newList)
+ }
   
   return (
     <>
@@ -37,7 +43,7 @@ function App() {
     <ul>
       {list.map((item, index) => {
         return (
-          <li key={index}>
+          <li key={index} onClick={() => handleToggleDone(index)}>
             {item.done && 
               <del>{item.title}</del>
             }
